@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Configurations>Debug;Release;USEKestrel;KESTREL</Configurations>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="wwwroot\bootstrap\css\bootstrap-grid.css" />
+    <None Remove="wwwroot\bootstrap\css\bootstrap-grid.css.map" />
+    <None Remove="wwwroot\bootstrap\css\bootstrap-grid.min.css" />
+    <None Remove="wwwroot\bootstrap\css\bootstrap-grid.min.css.map" />
+    <None Remove="wwwroot\bootstrap\css\bootstrap-reboot.css" />
+    <None Remove="wwwroot\bootstrap\css\bootstrap-reboot.css.map" />
+    <None Remove="wwwroot\bootstrap\css\bootstrap-reboot.min.css" />
+    <None Remove="wwwroot\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <None Remove="wwwroot\bootstrap\css\bootstrap.css" />
+    <None Remove="wwwroot\bootstrap\css\bootstrap.css.map" />
+    <None Remove="wwwroot\bootstrap\css\bootstrap.min.css" />
+    <None Remove="wwwroot\bootstrap\css\bootstrap.min.css.map" />
+    <None Remove="wwwroot\bootstrap\js\bootstrap.bundle.js" />
+    <None Remove="wwwroot\bootstrap\js\bootstrap.bundle.js.map" />
+    <None Remove="wwwroot\bootstrap\js\bootstrap.bundle.min.js" />
+    <None Remove="wwwroot\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <None Remove="wwwroot\bootstrap\js\bootstrap.js" />
+    <None Remove="wwwroot\bootstrap\js\bootstrap.js.map" />
+    <None Remove="wwwroot\bootstrap\js\bootstrap.min.js" />
+    <None Remove="wwwroot\bootstrap\js\bootstrap.min.js.map" />
+    <None Remove="wwwroot\css\styles.css" />
+    <None Remove="wwwroot\fonts\BZar.ttf" />
+    <None Remove="wwwroot\fonts\BZarBd.ttf" />
+    <None Remove="wwwroot\fonts\Shabnam.ttf" />
+    <None Remove="wwwroot\fonts\Yekan.ttf" />
+    <None Remove="wwwroot\images\logo.png" />
+    <None Remove="wwwroot\jquery\jquery.js" />
+    <None Remove="wwwroot\jquery\jquery.min.js" />
+    <None Remove="wwwroot\jquery\jquery.min.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.IdentityModel.Logging" Version="6.18.0" />
+    <PackageReference Include="Ocelot" Version="17.0.1" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\MessageBroker\NovinMeyar.MessageBroker.ShareModels\NovinMeyar.Common.csproj" />
+  </ItemGroup>
+
+</Project>

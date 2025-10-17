@@ -1,0 +1,108 @@
+{
+  "Routes": [
+
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5000"
+        }
+      ],
+      "UpstreamPathTemplate": "/NovinMeyar.IdentityServer.Server/{everything}",
+      "UpstreamHttpMethod": [ "Post", "GET" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5001"
+        }
+      ],
+      "UpstreamPathTemplate": "/NovinMeyar.Technical.Api/{everything}",
+      "UpstreamHttpMethod": [ "Post", "GET" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5002"
+        }
+      ],
+      "UpstreamPathTemplate": "/NovinMeyar.Customer.Api/{everything}",
+      "UpstreamHttpMethod": [ "Post", "GET" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5003"
+        }
+      ],
+      "UpstreamPathTemplate": "/NovinMeyar.FileManagment.Api/{everything}",
+      "UpstreamHttpMethod": [ "Post", "GET" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5004"
+        }
+      ],
+      "UpstreamPathTemplate": "/NovinMeyar.Notification.Api/{everything}",
+      "UpstreamHttpMethod": [ "Post", "GET" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5005"
+        }
+      ],
+      "UpstreamPathTemplate": "/NovinMeyar.Cartabl.Api/{everything}",
+      "UpstreamHttpMethod": [ "Post", "GET" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5006"
+        }
+      ],
+      "UpstreamPathTemplate": "/NovinMeyar.Common.Api/{everything}",
+      "UpstreamHttpMethod": [ "Post", "GET" ]
+    },
+
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5007"
+        }
+      ],
+      "UpstreamPathTemplate": "/NovinMeyar.Finance.Api/{everything}",
+      "UpstreamHttpMethod": [ "Post", "GET" ]
+    }
+  ]
+}

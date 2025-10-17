@@ -1,0 +1,2 @@
+﻿using System;  namespace NovinMeyar.IdentityServer.Domain.View {     public class GetAllUsersResponse     {         public Guid Id { get; set; }         public string UserName { get; set; }         public string FullName { get; set; }         public int InstallationCompanyId { get; set; }         public string InstallationCompanyName { get; set; }         public string RoleName { get; set; }
+    } } 

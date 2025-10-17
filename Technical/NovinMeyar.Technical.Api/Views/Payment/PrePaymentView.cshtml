@@ -1,0 +1,114 @@
+﻿@using NovinMeyar.Technical.Api.Models
+@using NovinMeyar.Technical.Domain.Views
+@{
+    Layout = "_Layout";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10 col-lg-10 col-sm-10 col-xl-10">
+            <div class="shadow display">
+                <div style="margin-top: -30px;">
+                    <div class="text-center">
+                        <img src="~/images/logo.png" width="45px" class="mb-2">
+                    </div>
+                    <div id="head" dir="rtl">
+                        <h3 class="text-dark text-center font-bold">پیش فاکتور</h3>
+                        <div class="d-flex  text-info justify-content-between text-right">
+                            <div>
+                                <h6>نام مشتری : @Model?.ResponsibleFullName</h6>
+                                <h6>
+                                    شماره پرونده : @Model?.DocumentNumber
+                                </h6>
+                                <h6>
+                                    نوبت بازرسی : @Model?.Row
+                                </h6>
+
+                            </div>
+                            <div>
+                                <h6>
+                                    تاریخ : @Model?.Date
+                                </h6>
+                                <h6>تلفن : @Model?.ResponsibleCell</h6>
+
+                            </div>
+                        </div>
+                        <div class="row text-info justify-content-between text-right mr-1">
+                            <h6>آدرس : @Model?.Address</h6>
+                        </div>
+                    </div>
+
+                    <div>
+                        <table id="table" class="table table-bordered table-responsive" dir="rtl">
+                            <tbody>
+                                <tr>
+                                    <th>تعرفه بازرسی</th>
+                                    <td>@Model?.Amount ریال</td>
+                                </tr>
+                                <tr>
+                                    <th>هزینه ایاب و ذهاب</th>
+                                    <td>@Model?.TravelExpenses ریال</td>
+                                </tr>
+                                <tr>
+                                    <th> مالیات بر ارزش افزوده (9 %)</th>
+                                    <td>@Model?.Tax ریال</td>
+                                </tr>
+                                <tr>
+                                    <th>مازاد بر توقف</th>
+                                    <td>@Model?.AdditionalStopCount</td>
+                                    <th>مبلغ</th>
+                                    <td>@Model?.AdditionalPayment ریال</td>
+                                </tr>
+                                <tr>
+                                    <th>مبلغ قابل پرداخت</th>
+                                    <td>@Model?.TotalPayment ریال</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                @if (Model != null)
+                {
+                    <div class="form-group" style="margin-top: 12%; float:right; position: relative; ">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <button type="submit" id="btnPay" class="btn btn-secondary btn-md" style="position: fixed;left:9.6%;bottom: 1em;" onclick="gotoPaymentGateway()">پرداخت</button>
+
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    
+var gotoPaymentGateway = function() {
+    debugger;
+    var btnPay = document.getElementById("btnPay");
+    btnPay.disabled = true;
+    var tag = location.search.substring(5,location.search.length);
+    var host = location.origin;
+    $.ajax({
+        contentType: 'application/json',
+        data: tag.toString(),
+    dataType: 'json',
+    success: function(resp){
+      if(!resp.succeed)
+      {
+        alert(resp.message);
+        return;
+      }
+      window.location.href = `https://pep.shaparak.ir/payment.aspx?n=${resp.data}`;
+    },
+    error: function(ex){
+        console.log(ex);
+        btnPay.disabled = false;
+    },
+    processData: false,
+    type: 'POST',
+    url: `${host}/api/v1/FastRegisration/PrepareToPay?tag=${tag}`
+});
+}
+</script>
+

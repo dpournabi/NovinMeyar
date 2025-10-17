@@ -1,0 +1,42 @@
+﻿cd Technical/NovinMeyar.Technical.Api
+cd IdentityServer/NovinMeyar.IdentityServer.Server
+cd Cartabl/NovinMeyar.Cartabl.Api
+cd Customer/NovinMeyar.Customer.Api
+cd FileManagment/NovinMeyar.FileManagment.Api
+cd Common/NovinMeyar.Common.Api
+cd Finance/NovinMeyar.Finance.Api
+
+dotnet tool install --global dotnet-ef
+
+dotnet ef migrations add InitialCreate
+
+dotnet ef database update
+
+dotnet ef migrations remove --force
+
+Identity Server Migration
+https://docs.identityserver.io/en/latest/quickstarts/5_entityframework.html
+dotnet add package IdentityServer4.EntityFramework
+dotnet add package IdentityServer4.EntityFramework
+dotnet tool install --global dotnet-ef
+dotnet add package Microsoft.EntityFrameworkCore.Design
+
+dotnet ef migrations add InitialIdentityServerPersistedGrantDbMigration -c PersistedGrantDbContext -o Migrations/PersistedGrantDb
+dotnet ef migrations add InitialIdentityServerConfigurationDbMigration -c ConfigurationDbContext -o Migrations/ConfigurationDb
+dotnet ef migrations add InitialCreate -c ApplicationDbContext
+
+dotnet ef migrations remove --force -c PersistedGrantDbContext
+dotnet ef migrations remove --force -c ConfigurationDbContext
+dotnet ef migrations remove --force -c ApplicationDbContext
+
+dotnet ef database update -c PersistedGrantDbContext
+dotnet ef database update -c ConfigurationDbContext
+dotnet ef database update -c ApplicationDbContext
+
+
+//*Excluding part of model from migration
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<IdentityUser>()
+        .ToTable("AspNetUsers", t => t.ExcludeFromMigrations());
+}

@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div class="container p-5 shadow-lg" style="margin-top:5% !important" id="payback">
+    <div class="text-center logo">
+        <img src="~/NovinMeyar.Finance.Api/images/logo.png">
+    </div>
+    <div class="content mt-4 pt-4 text-xxl-center text-center">
+        <h6>
+            @if (!Model.IsSuccess)
+            {
+            <span class="two" nz-icon nzType="close" nzTheme="outline"></span>
+            }
+            else
+            {
+            <span class="one" nz-icon nzType="check" nzTheme="outline"></span>
+            }
+
+            <b>@Model.Message</b>
+        </h6>
+        <h6 *ngIf="checkPayment">
+            شماره پیگیری :
+            <b>@Model.ShaparakRefNumber</b>
+        </h6>
+    </div>
+    <div class="col-12 text-center">
+        <a class="btn btn-success" href="http://app.nmaa.co.ir/workflow">بازگشت به سامانه</a>
+    </div>
+</div>

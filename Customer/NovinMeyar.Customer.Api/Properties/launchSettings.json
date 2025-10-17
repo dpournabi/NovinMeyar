@@ -1,0 +1,21 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:41968",
+      "sslPort": 44362
+    }
+  },
+  "profiles": {
+    "NovinMeyar.Customer.Api": {
+      "commandName": "Project",
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "DEVELOPMENT"
+      },
+      "dotnetRunMessages": "true",
+      "applicationUrl": "http://localhost:5002"
+    }
+  }
+}
